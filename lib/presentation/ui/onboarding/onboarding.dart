@@ -35,6 +35,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 top: 20,
                 right: 20,
                 child: TextButton(
+                  key: const Key('skip_button'),
                   onPressed: () => _pageController.jumpToPage(onboardingPages.length - 1),
                   child: const Text(
                     "Skip",

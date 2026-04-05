@@ -14,6 +14,7 @@ class UserDetailCubit extends Cubit<UserDetailState> {
         super(const UserDetailState.initial());
 
   Future<void> fetchUserDetail(int id) async {
+    emit(UserDetailInitial());
     try {
       final user = await _userRepo.getHomeProfile(id);
       emit(UserDetailReady(user: user));
