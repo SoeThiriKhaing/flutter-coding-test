@@ -11,6 +11,7 @@ _CompanyModel _$CompanyModelFromJson(Map<String, dynamic> json) =>
       id: (json['id'] as num?)?.toInt(),
       name: json['name'] as String?,
       address: json['address'] as String?,
+      logo: json['logo'] as String?,
     );
 
 Map<String, dynamic> _$CompanyModelToJson(_CompanyModel instance) =>
@@ -18,4 +19,5 @@ Map<String, dynamic> _$CompanyModelToJson(_CompanyModel instance) =>
       'id': instance.id,
       'name': instance.name,
       'address': instance.address,
+      'logo': instance.logo,
     };

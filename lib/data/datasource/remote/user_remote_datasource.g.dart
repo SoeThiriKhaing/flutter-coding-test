@@ -45,7 +45,7 @@ class _UserRemoteDataSource implements UserRemoteDataSource {
   }
 
   @override
-  Future<UserModel> getHomeUser() async {
+  Future<UserModel> getHomeUser(int id) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -54,7 +54,7 @@ class _UserRemoteDataSource implements UserRemoteDataSource {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/users/1',
+            '/users/${id}',
             queryParameters: queryParameters,
             data: _data,
           )

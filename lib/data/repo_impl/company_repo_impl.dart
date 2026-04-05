@@ -15,7 +15,10 @@ class CompanyRepoImpl implements CompanyRepo {
     return companies
         .map(
           (company) => CompanyEntity(
-              id: company.id, name: company.name, address: company.address),
+              id: company.id,
+              name: company.name,
+              address: company.address,
+              logo: company.logo),
         )
         .toList();
   }
@@ -28,6 +31,7 @@ class CompanyRepoImpl implements CompanyRepo {
       id: companyDetail.id,
       name: companyDetail.name,
       address: companyDetail.address,
+      logo: companyDetail.logo
     );
   }
 }

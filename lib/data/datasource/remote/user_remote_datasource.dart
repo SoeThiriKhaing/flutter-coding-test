@@ -14,10 +14,11 @@ abstract class UserRemoteDataSource {
   @POST("/login")
   Future<HttpResponse> login(@Body() Map<String, dynamic> body);
 
-  @GET("/users/1")
-  Future<UserModel> getHomeUser();
+  @GET("/users/{id}")
+  Future<UserModel> getHomeUser(@Path("id") int id);
 
   @GET("/users")
+
   Future<List<UserModel>> getUsers();
 
   @GET("/users/{id}")

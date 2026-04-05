@@ -19,7 +19,7 @@ class UserRepoImpl implements UserRepo {
 
   @override
   Future<UserEntity> getHomeProfile(int userId)async {
-    return await remoteDataSource.getUserDetail(userId);
+    return await remoteDataSource.getHomeUser(userId);
   }
 
   @override

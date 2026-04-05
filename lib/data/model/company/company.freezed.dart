@@ -17,6 +17,7 @@ mixin _$CompanyModel {
   int? get id;
   String? get name;
   String? get address;
+  String? get logo;
 
   /// Create a copy of CompanyModel
   /// with the given fields replaced by the non-null parameter values.
@@ -36,16 +37,17 @@ mixin _$CompanyModel {
             other is CompanyModel &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.address, address) || other.address == address));
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.logo, logo) || other.logo == logo));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, address);
+  int get hashCode => Object.hash(runtimeType, id, name, address, logo);
 
   @override
   String toString() {
-    return 'CompanyModel(id: $id, name: $name, address: $address)';
+    return 'CompanyModel(id: $id, name: $name, address: $address, logo: $logo)';
   }
 }
 
@@ -55,7 +57,7 @@ abstract mixin class $CompanyModelCopyWith<$Res> {
           CompanyModel value, $Res Function(CompanyModel) _then) =
       _$CompanyModelCopyWithImpl;
   @useResult
-  $Res call({int? id, String? name, String? address});
+  $Res call({int? id, String? name, String? address, String? logo});
 }
 
 /// @nodoc
@@ -73,6 +75,7 @@ class _$CompanyModelCopyWithImpl<$Res> implements $CompanyModelCopyWith<$Res> {
     Object? id = freezed,
     Object? name = freezed,
     Object? address = freezed,
+    Object? logo = freezed,
   }) {
     return _then(_self.copyWith(
       id: freezed == id
@@ -86,6 +89,10 @@ class _$CompanyModelCopyWithImpl<$Res> implements $CompanyModelCopyWith<$Res> {
       address: freezed == address
           ? _self.address
           : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      logo: freezed == logo
+          ? _self.logo
+          : logo // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -184,13 +191,14 @@ extension CompanyModelPatterns on CompanyModel {
 
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(int? id, String? name, String? address)? $default, {
+    TResult Function(int? id, String? name, String? address, String? logo)?
+        $default, {
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
       case _CompanyModel() when $default != null:
-        return $default(_that.id, _that.name, _that.address);
+        return $default(_that.id, _that.name, _that.address, _that.logo);
       case _:
         return orElse();
     }
@@ -211,12 +219,13 @@ extension CompanyModelPatterns on CompanyModel {
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(int? id, String? name, String? address) $default,
+    TResult Function(int? id, String? name, String? address, String? logo)
+        $default,
   ) {
     final _that = this;
     switch (_that) {
       case _CompanyModel():
-        return $default(_that.id, _that.name, _that.address);
+        return $default(_that.id, _that.name, _that.address, _that.logo);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -236,12 +245,13 @@ extension CompanyModelPatterns on CompanyModel {
 
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(int? id, String? name, String? address)? $default,
+    TResult? Function(int? id, String? name, String? address, String? logo)?
+        $default,
   ) {
     final _that = this;
     switch (_that) {
       case _CompanyModel() when $default != null:
-        return $default(_that.id, _that.name, _that.address);
+        return $default(_that.id, _that.name, _that.address, _that.logo);
       case _:
         return null;
     }
@@ -251,7 +261,7 @@ extension CompanyModelPatterns on CompanyModel {
 /// @nodoc
 @JsonSerializable()
 class _CompanyModel implements CompanyModel {
-  _CompanyModel({this.id, this.name, this.address});
+  _CompanyModel({this.id, this.name, this.address, this.logo});
   factory _CompanyModel.fromJson(Map<String, dynamic> json) =>
       _$CompanyModelFromJson(json);
 
@@ -261,6 +271,8 @@ class _CompanyModel implements CompanyModel {
   final String? name;
   @override
   final String? address;
+  @override
+  final String? logo;
 
   /// Create a copy of CompanyModel
   /// with the given fields replaced by the non-null parameter values.
@@ -284,16 +296,17 @@ class _CompanyModel implements CompanyModel {
             other is _CompanyModel &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.address, address) || other.address == address));
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.logo, logo) || other.logo == logo));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, address);
+  int get hashCode => Object.hash(runtimeType, id, name, address, logo);
 
   @override
   String toString() {
-    return 'CompanyModel(id: $id, name: $name, address: $address)';
+    return 'CompanyModel(id: $id, name: $name, address: $address, logo: $logo)';
   }
 }
 
@@ -305,7 +318,7 @@ abstract mixin class _$CompanyModelCopyWith<$Res>
       __$CompanyModelCopyWithImpl;
   @override
   @useResult
-  $Res call({int? id, String? name, String? address});
+  $Res call({int? id, String? name, String? address, String? logo});
 }
 
 /// @nodoc
@@ -324,6 +337,7 @@ class __$CompanyModelCopyWithImpl<$Res>
     Object? id = freezed,
     Object? name = freezed,
     Object? address = freezed,
+    Object? logo = freezed,
   }) {
     return _then(_CompanyModel(
       id: freezed == id
@@ -337,6 +351,10 @@ class __$CompanyModelCopyWithImpl<$Res>
       address: freezed == address
           ? _self.address
           : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      logo: freezed == logo
+          ? _self.logo
+          : logo // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
