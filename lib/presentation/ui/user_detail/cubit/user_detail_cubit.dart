@@ -16,7 +16,7 @@ class UserDetailCubit extends Cubit<UserDetailState> {
   Future<void> fetchUserDetail(int id) async {
     emit(UserDetailInitial());
     try {
-      final user = await _userRepo.getHomeProfile(id);
+      final user = await _userRepo.getUserDetail(id);
       emit(UserDetailReady(user: user));
     } catch (e) {
       emit(const UserDetailState.error("Failed to fetch user details."));
