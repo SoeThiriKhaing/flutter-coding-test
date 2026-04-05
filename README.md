@@ -1,16 +1,36 @@
-# testing
+# 📱 Flutter Assignment: User Directory App
 
-A new Flutter project.
+ဒီ Project ကတော့ **Clean Architecture** နဲ့ **BLoC Pattern** ကို အသုံးပြုပြီး ရေးသားထားတဲ့ Flutter Mobile Application ဖြစ်ပါတယ်။ API ကနေ User အချက်အလက်တွေကို ခေါ်ယူပြသပေးမှာဖြစ်ပြီး စနစ်တကျ Testing တွေလည်း ထည့်သွင်းထားပါတယ်။
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## ✨ Features
+- **Splash Screen:** App စတင်ဖွင့်ချင်း ပြသမည့် Animation Screen။
+- **Onboarding:** App ရဲ့ လုပ်ဆောင်ချက်များကို လမ်းညွှန်ပေးသည့် PageView Slide များ။
+- **Login:** Bloc State Management သုံးပြီး Username/Password ဖြင့် ဝင်ရောက်နိုင်ခြင်း။
+- **Dashboard:** User list များကို Card view ဖြင့် ကြည့်ရှုနိုင်ခြင်း။
+- **User Details:** ရွေးချယ်လိုက်သော User ၏ အသေးစိတ်အချက်အလက်များကို ပြသခြင်း။
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🏗 Architecture & Tech Stack
+ဒီ App ကို ပြင်ဆင်ထိန်းသိမ်းရ လွယ်ကူစေဖို့အတွက် အောက်ပါ Architecture နဲ့ Library တွေကို သုံးထားပါတယ်။
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* **Architecture:** Clean Architecture (Data, Domain, Presentation Layers)
+* **State Management:** BLoC / Cubit
+* **Dependency Injection:** `get_it`
+* **Models & Serialization:** `freezed` & `json_serializable`
+* **Testing:** `bloc_test`, `mocktail` & `integration_test`
+
+
+
+---
+
+## 📂 Project Structure
+```text
+lib/
+├── core/             # Utils, Constants, App Theme
+├── data/             # Models, Repositories Implementation, Data Sources
+├── domain/           # Entities, Use Cases, Repository Interfaces
+├── presentation/     # Cubits, Screens, Widgets (UI)
+└── injection.dart    # Dependency Injection Setup
