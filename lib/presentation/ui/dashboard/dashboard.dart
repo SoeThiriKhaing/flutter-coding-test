@@ -10,7 +10,6 @@ import '../home/home.dart';
 import '../user/user_list.dart';
 
 class DashboardScreen extends StatefulWidget {
-
   const DashboardScreen({super.key});
 
   @override
@@ -20,18 +19,19 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   int _idx = 0;
 
-
   late final List<Widget> _tabs = [
     BlocProvider(
-      create: (context) => sl<HomeCubit>(),      child: const HomePage(userId: 1),
+      create: (context) => sl<HomeCubit>(),
+      child: const HomePage(userId: 1),
     ),
     BlocProvider(
-      create: (context) => sl<UserListCubit>(),      child: const UserListPage(),
+      create: (context) => sl<UserListCubit>(),
+      child: const UserListPage(),
     ),
     BlocProvider(
-      create: (context) => sl<CompanyListCubit>(),      child: const CompanyListPage(),
+      create: (context) => sl<CompanyListCubit>(),
+      child: const CompanyListPage(),
     ),
-
   ];
 
   @override
@@ -42,7 +42,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
         backgroundColor: const Color(0xFF1DE9B6),
         elevation: 0,
       ),
-
       body: IndexedStack(
         index: _idx,
         children: _tabs,

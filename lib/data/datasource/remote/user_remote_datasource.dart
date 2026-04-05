@@ -18,7 +18,6 @@ abstract class UserRemoteDataSource {
   Future<UserModel> getHomeUser(@Path("id") int id);
 
   @GET("/users")
-
   Future<List<UserModel>> getUsers();
 
   @GET("/users/{id}")
